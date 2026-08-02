@@ -1,0 +1,17 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        dp = {1:1, 2:2}
+        
+        def dfs(n: int) -> int:
+            if n < 1:
+                return 0
+
+            if n not in dp:
+                dp[n] = dfs(n - 1) + dfs(n - 2)
+
+            return dp[n]
+        
+        return dfs(n)
+
+        
+        
